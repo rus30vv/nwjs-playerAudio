@@ -13,13 +13,14 @@ const path = require('path');
 //global supper value
 var timeMinut = "0";
 var timeSecond = "0";
+var durstr;
 var b = 0;//arr_full_song
 var c = 0;//counter_song
 var a = 1;
 var nameSong;
 var aud = new Audio();
 aud.src = nameSong;
-var arr = [];
+var arr = [];var durstrMinut;var durstrSecond;
 //var filename = location.pathname.match(/[^\/]+$/)[0];
 //console.log(filename);
 var folderPath = String("./");//music
@@ -52,7 +53,7 @@ function prewContent(){
   aud.pause();
   aud.src = null;
   if (c > 0){
-    c = c - 1;// not gud c++ unsafe
+    c = c - 1;// not gud ++ --unsafe
   }else if(c > 0){c = b;}
   
   nameSong = String(arr[c]);
@@ -90,19 +91,42 @@ function lodder(){
   });
 }
 
-function brilliantString(stringd){
+function brilliantString(stringd, durstr){
   
    stringd = Math.round(stringd);
+   
    timeMinut = Math.round(stringd / 60);
    
+   timeSecond = stringd % 60;
+                    //tmp code
+   //durstr = 
+   durstrMinut =  String(durstr / 60);
+   durstrSecond = String(durstr % 60);
+   
+   durstr =  String(durstr / 60);//" / "+ durstrMinut + " : " + durstrSecond;
+                     //tmpcode
+   
    if (stringd < 10){
-     //stringd = stringd1;
-       timeSecond = String("0"+stringd);
-      }else{timeSecond = stringd;
-  }
+     
+       timeSecond = "0"+timeSecond;
+       
+      }
+      else{
+        
+        timeSecond = timeSecond ;
+      }
+      
    if(timeMinut < 1){
-     timeMinut = String("0"+timeMinut);
-    }else if(timeMinut<10){timeMinut = String(Math.round(timeMinut));}
+     
+     timeMinut = "0"+ timeMinut;
+     
+    }
+    
+    else if(timeMinut<60){
+      
+      //timeMinut = Math.round(timeMinut);
+      
+    }
   
 }
 
@@ -121,9 +145,9 @@ async function visibleInfoTrack() {
   do{
 			await sleep(800);
         var stringd = aud.currentTime;
-    		var durstr = aud.duration;
-    		brilliantString(stringd);
-   			document.getElementById("zona").innerHTML = timeMinut+" : "+timeSecond+" dur "+durstr;
+    		durstr = aud.duration;
+    		brilliantString(stringd, durstr);
+   			document.getElementById("zona").innerHTML = timeMinut+" : "+timeSecond;//+durstr;
    			document.getElementById("info_w").innerHTML = arr[c];
    			document.getElementById("zona").style.color = 'blue';
    			if (aud.ended === true){nextContent();}
