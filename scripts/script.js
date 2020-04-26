@@ -95,7 +95,7 @@ function brilliantString(stringd, durstr){
   
    stringd = Math.round(stringd);
    
-   timeMinut = Math.round(stringd / 60);
+   timeMinut = stringd / 60;
    
    timeSecond = stringd % 60;
                     //tmp code
@@ -106,7 +106,7 @@ function brilliantString(stringd, durstr){
    durstr =  String(durstr / 60);//" / "+ durstrMinut + " : " + durstrSecond;
                      //tmpcode
    
-   if (stringd < 10){
+   if (timeSecond < 10){
      
        timeSecond = "0"+timeSecond;
        
@@ -116,16 +116,15 @@ function brilliantString(stringd, durstr){
         timeSecond = timeSecond ;
       }
       
-   if(timeMinut < 1){
+   if(timeMinut < 10){
      
-     timeMinut = "0"+ timeMinut;
+     timeMinut = "0"+ Math.floor(timeMinut);
      
     }
     
-    else if(timeMinut<60){
-      
-      //timeMinut = Math.round(timeMinut);
-      
+    else{
+      timeMinut = Math.floor(timeMinut);
+     
     }
   
 }
@@ -147,7 +146,9 @@ async function visibleInfoTrack() {
         var stringd = aud.currentTime;
     		durstr = aud.duration;
     		brilliantString(stringd, durstr);
-   			document.getElementById("zona").innerHTML = timeMinut+" : "+timeSecond;//+durstr;
+    		
+   			document.getElementById("zona").innerHTML = timeMinut+" : "+timeSecond;//+durstr;Осторожно! Если ты нажмете на кнопку, то произойдут изменения с данным контентом.
+   			
    			document.getElementById("info_w").innerHTML = arr[c];
    			document.getElementById("zona").style.color = 'blue';
    			if (aud.ended === true){nextContent();}
@@ -202,6 +203,12 @@ function playAudio(){
 //menu.append(new gui.MenuItem({label: 'Этот', type: 'checkbox' }));
 //menu.append(new gui.MenuItem({label: 'Другой', type: 'checkbox'}));
 //menu.append(new gui.MenuItem({type: 'separator' }));
-//menu.append(new gui.MenuItem({label: 'или ...',   submenu: getDummyMenu()}));
+//menu.append(new gui.MenuItem({label: 'или ...',   submenu: getDummyMenu()}));Осторожно! Если ты нажмете на кнопку, то произойдут изменения с данным контентом.
 
 //tray.menu = menu;
+console.log(Math.floor(10 / 3));
+console.log(Math.floor(-10 / 3));
+
+console.log(Math.ceil(10 / 3));
+console.log(Math.ceil(-10 / 3));
+
