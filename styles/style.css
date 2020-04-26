@@ -1,0 +1,29 @@
+.button {
+  outline: none;
+  width: 30px;
+  height: 20px;
+  background-color:  rgba(0, 0, 0, 0.0);
+  border: none;
+  color: white;
+ 
+ text-decoration-color: white ;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+body {
+  
+  background-image: url("../image/2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  
+  
+}
+
+
