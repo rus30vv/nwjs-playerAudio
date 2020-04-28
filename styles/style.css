@@ -1,45 +1,80 @@
 .button {
   outline: none;
-  width: 50px;
-  height: 30px;
-  border: solid;
-  color: #0b8593;
+  width: auto;
+  height: auto;
+  border: inline;
+  color: white;
   
- background: rgba(0, 255, 255, 0.1);
- text-decoration-color: white;
+ background: rgba(255, 255, 255, 0.00);
+ 
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  border-color: rgba(0, 255, 255, 0.2);
+ 
+  border-color: rgba(255, 255, 255, 0.0);
   cursor: pointer;
   border-radius: 0px;
+  font: 25pt '/styles/19226.otf';
+  
+  
 }
+.button:hover {
+  /*
+  color: #7eff00; button color
+   color: #b3c143;
+  border-color: #b3c143;  font: 25pt '11872.otf';
+  border-radius: 3.14px;
+   background: rgba(0, 0, 0, 0.0);
+  */
+  
+  
 
+  color: white;
+ background: #090909;
+ 
+}
 
 body {
   
-  background-image: url("../image/2.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #1c1c1b;
 
   
 }
 
-h1 {
-  
+.h1 {
+
   color: #0b8593;
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
-  
 }
+
 
 listP {
-  text-align: left;
-  color: blue;
+  
+  text-align: center;
+  color: #0b8593;
+  
+  font-size:16px;
+  
 }
 
 listP2 {
   text-align: center;
-  color: blue;
+  color: #c1c797;
+  font-size:20px;
 }
+
+listP3 {
+  text-align: center;
+  font-size:15px;
+}
+
+
+
+
+
+
+
+
+
+

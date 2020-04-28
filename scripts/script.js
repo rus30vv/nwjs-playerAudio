@@ -23,7 +23,7 @@ aud.src = nameSong;
 var arr = [];var durstrMinut;var durstrSecond;
 //var filename = location.pathname.match(/[^\/]+$/)[0];
 //console.log(filename);
-var folderPath = String("./");//music
+var folderPath = String("../music");//music
 
 visibleInfoTrack();
 
@@ -137,9 +137,6 @@ function sleep(ms) {
 }
  
 async function visibleInfoTrack() {
-  
-  document.getElementById("info_w").style.fontSize = '14px';
-  document.getElementById('info_w').style.color = '#e2dfdf';
   //document.getElementById("info_w").
   do{
 			await sleep(800);
@@ -150,7 +147,7 @@ async function visibleInfoTrack() {
    			document.getElementById("zona").innerHTML = timeMinut+" : "+timeSecond;//+durstr;Осторожно! Если ты нажмете на кнопку, то произойдут изменения с данным контентом.
    			
    			document.getElementById("info_w").innerHTML = arr[c];
-   			document.getElementById("zona").style.color = 'blue';
+   			//document.getElementById("zona").style.color = 'blue';
    			if (aud.ended === true){nextContent();}
     }while(true);
     //nextContent();

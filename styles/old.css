@@ -33,3 +33,52 @@ h1{
 
 }
 .
+/*
+
+.button {
+  outline: none;
+  width: 50px;
+  height: 30px;
+  border: solid;
+  color: #0b8593;
+  
+ background: rgba(0, 255, 255, 0.1);
+ text-decoration-color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-color: rgba(0, 255, 255, 0.2);
+  cursor: pointer;
+  border-radius: 0px;
+}
+
+
+body {
+  
+  background-image: url("../image/2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  
+}
+
+h1 {
+  
+  color: #0b8593;
+  font-size: 20px;
+  text-align: center;
+  
+}
+
+listP {
+  text-align: left;
+  color: blue;
+}
+
+listP2 {
+  text-align: center;
+  color: blue;
+}
+
+*/
