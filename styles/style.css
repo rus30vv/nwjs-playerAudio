@@ -52,6 +52,7 @@ body {
 listP {
   
   text-align: center;
+  
   color: #0b8593;
   
   font-size:16px;
@@ -60,13 +61,16 @@ listP {
 
 listP2 {
   text-align: center;
-  color: #c1c797;
-  font-size:20px;
+  color: #bebfba;
+  font-size:18px;
 }
 
+
+
 listP3 {
+  color: #eeff73;
   text-align: center;
-  font-size:15px;
+  font-size:22px;
 }
 
 

@@ -8,7 +8,7 @@ const path = require('path');
 //gui.Window.get(); //окно
 
 //gui.Shell(); //оболочка
-
+var durstrMinut;var durstrSecond;
 
 //global supper value
 var timeMinut = "0";
@@ -18,17 +18,19 @@ var b = 0;//arr_full_song
 var c = 0;//counter_song
 var a = 1;
 var nameSong;
+
 var aud = new Audio();
+var next = 'deefaul ';
+var back = 'defalt ';
 aud.src = nameSong;
 var arr = [];var durstrMinut;var durstrSecond;
 //var filename = location.pathname.match(/[^\/]+$/)[0];
 //console.log(filename);
-var folderPath = String("../music");//music
+var folderPath = String("./music/");//music
 
 visibleInfoTrack();
 
 lodder()
-
 
 function nextContent(){
   
@@ -41,11 +43,8 @@ function nextContent(){
   nameSong = String(arr[c]);
   aud.src = nameSong;
   aud.play();
-  document.getElementById("file_playning").innerHTML = nameSong +" count: "+ c +" last: " + b;
   
   
-  
-  //visibleInfoTrack();
 }
 
 
@@ -59,7 +58,6 @@ function prewContent(){
   nameSong = String(arr[c]);
   aud.src = nameSong;
   aud.play();
-  document.getElementById("file_playning").innerHTML = nameSong +" count: "+ c +" last: " + b;
   //visibleInfoTrack();
 }
 
@@ -89,6 +87,7 @@ function lodder(){
     nameSong = String(arr[0]);
     aud.src = nameSong;
   });
+  
 }
 
 function brilliantString(stringd, durstr){
@@ -100,11 +99,11 @@ function brilliantString(stringd, durstr){
    timeSecond = stringd % 60;
                     //tmp code
    //durstr = 
-   durstrMinut =  String(durstr / 60);
-   durstrSecond = String(durstr % 60);
+   durstrMinut =  Math.round(durstr / 60);
+   durstrSecond = Math.round(durstr % 60);
    
    durstr =  String(durstr / 60);//" / "+ durstrMinut + " : " + durstrSecond;
-                     //tmpcode
+  //tmpcode
    
    if (timeSecond < 10){
      
@@ -144,8 +143,25 @@ async function visibleInfoTrack() {
     		durstr = aud.duration;
     		brilliantString(stringd, durstr);
     		
-   			document.getElementById("zona").innerHTML = timeMinut+" : "+timeSecond;//+durstr;Осторожно! Если ты нажмете на кнопку, то произойдут изменения с данным контентом.
+    		
+    		  next = arr[c+1];
+          back = arr[c-1];
+   
+    		
+    		if(back === arr[-1]){
+    		  
+    		  back = '--';
+    		  
+    		}
+    		
+    		var string_info_duration = timeMinut+" : " + timeSecond + ' / '+ durstrMinut + " : " + durstrSecond;
+   			document.getElementById("zona").innerHTML = string_info_duration;//Осторожно! Если ты нажмете на кнопку, то произойдут изменения с данным контентом.
+   			//tmp not refactoring 
+   			document.getElementById("file_playning_next").innerHTML = next;
    			
+   			  document.getElementById("file_playning_back").innerHTML = back;
+
+   			//tmp end
    			document.getElementById("info_w").innerHTML = arr[c];
    			//document.getElementById("zona").style.color = 'blue';
    			if (aud.ended === true){nextContent();}
@@ -156,22 +172,6 @@ async function visibleInfoTrack() {
  
 
 
-
-
-
-
-
-function SupperButton(){
-    
-
-    
-    
-    document.getElementById("zona").innerHTML = 'playning: ' + a;
-    document.getElementById("zona").style.color = 'blue';
-    document.getElementById("zona").style.fontSize = '16px';
-
-}
-
 function playAudio(){
   //visibleInfoTrack();
   console.log("function playAudio\n");
@@ -179,6 +179,7 @@ function playAudio(){
   if(a === 1){
     a = 0;
     aud.play();
+    console.log(aud.src)
     }else if(a ===0){
       a = 1;
       aud.pause();
@@ -203,9 +204,5 @@ function playAudio(){
 //menu.append(new gui.MenuItem({label: 'или ...',   submenu: getDummyMenu()}));Осторожно! Если ты нажмете на кнопку, то произойдут изменения с данным контентом.
 
 //tray.menu = menu;
-console.log(Math.floor(10 / 3));
-console.log(Math.floor(-10 / 3));
 
-console.log(Math.ceil(10 / 3));
-console.log(Math.ceil(-10 / 3));
 
